@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Assignment</title>
+</head>
+<body>
+    <p id ="local">Local Score: </p>
+    <br>
+    <p id="session">Session Score: </p>
+    <br>
+    <button onclick="increment()">Click Here </button>
+    <button onclick="clearCount()">Clear</button>
+    <script>
+
+function increment()
+            {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount)+1;
+                } 
+                else{
+                    localStorage.clickcount = 1;
+                }
+                document.getElementById("local").innerHTML= "Local Score: "+localStorage.clickcount;
+
+                if (sessionStorage.clickcount){
+                   
+                    sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+                } 
+                else{
+                    sessionStorage.clickcount = 1;
+                }
+                document.getElementById("session").innerHTML= "Session Score: "+sessionStorage.clickcount;
+            }
+    function clearCount()
+    {
+        localStorage.clear();
+        sessionStorage.clear();
+        document.getElementById("local").innerHTML= "Local Score: ";
+        document.getElementById("session").innerHTML= "Session Score: ";
+    }
+    </script>
+</body>
+
+</html>
